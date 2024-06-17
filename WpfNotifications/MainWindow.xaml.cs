@@ -1,11 +1,12 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using WpfNotifications.Models;
 
 namespace WpfNotifications
 {
     public partial class MainWindow : Window
     {
-        readonly IList<Car> _cars = new List<Car>();
+        private readonly IList<Car> _cars = new ObservableCollection<Car>();
 
         public MainWindow()
         {
@@ -26,6 +27,8 @@ namespace WpfNotifications
         {
             //Add an event handler to the btnAddCar button
             var maxCount = _cars?.Max(x => x.Id) ?? 0;
+            //'?.' checks if _cars is null, if it is not then executes Max(), if null then returns null
+            //'??' checks the left-expression part and if it is null maxcount will be 0
             _cars?.Add(new Car { Id = ++maxCount, Color = "Yellow", Make = "VW", PetName = "Birdie" });
         }
     }

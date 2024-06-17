@@ -5,6 +5,13 @@ namespace WpfNotifications.Models
 {
     public class Car : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            //if (propertyName != nameof(IsChanged)) { IsChanged = true; }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         private int _id;
         public int Id
         {
@@ -23,11 +30,11 @@ namespace WpfNotifications.Models
 
         public string PetName { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this,
-            new PropertyChangedEventArgs(propertyName));
-        }
+        //private bool _isChanged;
+        //public bool IsChanged
+        //{
+        //    get { return _isChanged; }
+        //    set { if (value == _isChanged) return; _isChanged = value; OnPropertyChanged(); }
+        //}
     }
 }
