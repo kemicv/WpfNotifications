@@ -19,8 +19,13 @@ namespace WpfNotifications.Models
             set { if (value == _id) return; _id = value; OnPropertyChanged(); }
         }
 
-        public string Make { get; set; }
-        
+        private string _make;
+        public string Make
+        {
+            get { return _make; }
+            set { if (value == _make) return; _make = value; OnPropertyChanged(); }
+        }
+
         private string _color;
         public string Color
         {
@@ -28,7 +33,12 @@ namespace WpfNotifications.Models
             set { if (value == _color) return; _color = value; OnPropertyChanged(); }
         }
 
-        public string PetName { get; set; }
+        private string _petName;
+        public string PetName
+        {
+            get { return _petName; }
+            set { if (value == _petName) return; _petName = value; OnPropertyChanged(); }
+        }
 
         private bool _isChanged;
         public bool IsChanged
