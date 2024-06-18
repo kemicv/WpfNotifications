@@ -8,7 +8,7 @@ namespace WpfNotifications.Models
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            //if (propertyName != nameof(IsChanged)) { IsChanged = true; }
+            if (propertyName != nameof(IsChanged)) { IsChanged = true; }
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
@@ -30,11 +30,11 @@ namespace WpfNotifications.Models
 
         public string PetName { get; set; }
 
-        //private bool _isChanged;
-        //public bool IsChanged
-        //{
-        //    get { return _isChanged; }
-        //    set { if (value == _isChanged) return; _isChanged = value; OnPropertyChanged(); }
-        //}
+        private bool _isChanged;
+        public bool IsChanged
+        {
+            get { return _isChanged; }
+            set { if (value == _isChanged) return; _isChanged = value; OnPropertyChanged(); }
+        }
     }
 }

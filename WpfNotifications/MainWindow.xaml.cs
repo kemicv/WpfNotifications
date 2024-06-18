@@ -11,8 +11,8 @@ namespace WpfNotifications
         public MainWindow()
         {
             InitializeComponent();
-            _cars.Add(new Car { Id = 1, Color = "Blue", Make = "Chevy", PetName = "Kit" });
-            _cars.Add(new Car { Id = 2, Color = "Red", Make = "Ford", PetName = "Red Rider" });
+            _cars.Add(new Car { Id = 1, Color = "Blue", Make = "Chevy", PetName = "Kit", IsChanged = false });
+            _cars.Add(new Car { Id = 2, Color = "Red", Make = "Ford", PetName = "Red Rider", IsChanged = false });
             cboCars.ItemsSource = _cars;
         }
 
