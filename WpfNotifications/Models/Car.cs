@@ -3,13 +3,14 @@ using System.Runtime.CompilerServices;
 
 namespace WpfNotifications.Models
 {
-    public class Car : INotifyPropertyChanged
+    public partial class Car : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (propertyName != nameof(IsChanged)) { IsChanged = true; }
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(string.Empty));
         }
 
         private int _id;

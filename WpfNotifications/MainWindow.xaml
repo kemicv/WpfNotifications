@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfNotifications"
         mc:Ignorable="d"
-        Title="MainWindow" Height="auto" Width="800">
+        Title="MainWindow" Height="auto" Width="400">
 
     <Grid IsSharedSizeScope="True" Margin="5,0,5,5">
         <Grid.RowDefinitions>
@@ -36,9 +36,9 @@
             <Label Grid.Column="0" Grid.Row="0" Content="Id"/>
             <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" />
             <Label Grid.Column="0" Grid.Row="1" Content="Make"/>
-            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Make}" />
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Make, ValidatesOnDataErrors=True}"/>
             <Label Grid.Column="0" Grid.Row="2" Content="Color"/>
-            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Color, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Color, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
             <Label Grid.Column="0" Grid.Row="3" Content="Pet Name"/>
             <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Path=PetName}" />
             <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,5,0,5">
